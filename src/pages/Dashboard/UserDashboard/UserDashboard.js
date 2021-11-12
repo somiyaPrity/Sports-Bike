@@ -15,12 +15,32 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import './UserDashboard.css';
+//import Home from '../../Home/Home/Home';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch,
+} from 'react-router-dom';
+import Button from '@mui/material/Button';
+import Pay from '../Pay/Pay';
+import DashBoardHome from '../DashboardHome/DashBoardHome';
+import AddReview from '../AddReview/AddReview';
+import UserOrder from '../UserOrder/UserOrder';
+import useAuth from '../../../hooks/useAuth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 function UserDashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const { user } = useAuth();
+  let { path, url } = useRouteMatch();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -28,29 +48,50 @@ function UserDashboard(props) {
 
   const drawer = (
     <div>
-      <Toolbar />
+      {/* <Toolbar /> */}
+      <div style={{ color: '#2C394B' }}>
+        <FontAwesomeIcon icon={faUserCircle}></FontAwesomeIcon>
+        <p>{user.displayName}</p>
+      </div>
       <Divider />
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      {user?.email !== 'admin@admin.com' ? (
+        <div className='dashboard-nav'>
+          <Link to='/home'>
+            <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
+          </Link>
+          <Link to={`${url}/myOrder`}>
+            <Button variant='text'>My Order</Button>
+          </Link>
+          <Link to={`${url}/review`}>
+            <Button variant='text'>Add Review</Button>
+          </Link>
+          <Link to={`${url}/payment`}>
+            <Button variant='text'>Payment</Button>
+          </Link>
+        </div>
+      ) : (
+        <div className='dashboard-nav'>
+          <Link to='/home'>
+            <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
+          </Link>
+          <Link to={`${url}/manageAllOrders`}>
+            <Button variant='text'>ManageAllOrders</Button>
+          </Link>
+          <Link to={`${url}/addProduct`}>
+            <Button variant='text'>Add Product</Button>
+          </Link>
+          <Link to={`${url}/makeAdmin`}>
+            <Button variant='text'>Make Admin</Button>
+          </Link>
+
+          <Link to={`${url}/manageProducts`}>
+            <Button variant='text'>Manage Products</Button>
+          </Link>
+          <Link>
+            <Button variant='text'>Logout</Button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 
@@ -61,6 +102,10 @@ function UserDashboard(props) {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar
+        style={{
+          backgroundColor: '#94c300',
+          textTransform: 'uppercase',
+        }}
         position='fixed'
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
@@ -68,17 +113,8 @@ function UserDashboard(props) {
         }}
       >
         <Toolbar>
-          <IconButton
-            color='inherit'
-            aria-label='open drawer'
-            edge='start'
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
           <Typography variant='h6' noWrap component='div'>
-            Responsive drawer
+            Sports Bike
           </Typography>
         </Toolbar>
       </AppBar>
@@ -129,8 +165,21 @@ function UserDashboard(props) {
         }}
       >
         <Toolbar />
-        <Typography paragraph>Lorem</Typography>
-        <Typography paragraph>Consequat</Typography>
+        {/*user component route route */}
+        <Switch>
+          <Route exact path={path}>
+            <DashBoardHome></DashBoardHome>
+          </Route>
+          <Route path={`${path}/myOrder`}>
+            <UserOrder></UserOrder>
+          </Route>
+          <Route path={`${path}/payment`}>
+            <Pay></Pay>
+          </Route>
+          <Route path={`${path}/review`}>
+            <AddReview></AddReview>
+          </Route>
+        </Switch>
       </Box>
     </Box>
   );

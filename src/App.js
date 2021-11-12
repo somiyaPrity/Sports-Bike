@@ -7,7 +7,7 @@ import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import Login from './pages/Login/Login/Login';
 import Register from './pages/Login/Register/Register';
 import AuthProvider from './context/AuthProvider/AuthProvider';
-import UserDashboard from './pages/UserDashboard/UserDashboard';
+import UserDashboard from './pages/Dashboard/UserDashboard/UserDashboard';
 
 function App() {
   return (

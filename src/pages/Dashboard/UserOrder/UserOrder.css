@@ -1,0 +1,16 @@
+.status-red {
+  color: red;
+}
+.status-green {
+  color: green;
+}
+.delete-btn {
+  border: transparent;
+  color: red;
+  background-color: transparent;
+}
+.approve-btn {
+  border: transparent;
+  color: green;
+  background-color: transparent;
+}

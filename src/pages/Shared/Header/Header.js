@@ -1,4 +1,4 @@
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Container, Nav, Navbar, Button } from 'react-bootstrap';
@@ -32,12 +32,9 @@ const Header = () => {
           </Nav.Link>
           {user?.email ? (
             <div className='private-btn'>
-              <Nav.Link as={Link} to='/myOrder'>
-                My Order
-              </Nav.Link>
               <Navbar.Text>
                 <Nav.Link as={Link} to='/userDashboard'>
-                  <FontAwesomeIcon icon={faUser} />
+                  <FontAwesomeIcon icon={faUserCircle}></FontAwesomeIcon>
                 </Nav.Link>
 
                 <Button

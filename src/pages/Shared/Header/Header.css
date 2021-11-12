@@ -19,7 +19,7 @@
   text-transform: capitalize;
 }
 .nav-link {
-  color: #000;
+  color: #2c394b;
   font-weight: bold;
 }
 .nav-link:focus,
@@ -35,6 +35,10 @@
 .navbar-dark .navbar-text a {
   margin-left: 4px;
   text-decoration: none;
+  color: #2c394b;
+}
+
+.navbar-dark .navbar-text a:hover {
   color: #94c300;
 }
 .navbar-dark .navbar-text {

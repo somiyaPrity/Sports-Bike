@@ -109,13 +109,6 @@ const Register = () => {
               </Form>
 
               <div>
-                <p>or</p>
-                <Button
-                  style={{ backgroundColor: '#94c300', fontWeight: 'bold' }}
-                  variant='success'
-                >
-                  Sign in with <FontAwesomeIcon icon={faGooglePlusG} />
-                </Button>
                 <p>
                   Already have an account?
                   <Link to='/login'>Click here for login</Link>

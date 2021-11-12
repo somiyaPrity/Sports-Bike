@@ -1,0 +1,18 @@
+.css-1t29gy6-MuiToolbar-root {
+  justify-content: center;
+}
+.dashboard-nav {
+  margin-top: 20px;
+}
+.dashboard-nav a {
+  display: block;
+  text-decoration: none;
+  color: #2c394b;
+}
+.dashboard-nav a button {
+  color: #2c394b;
+  font-weight: bold;
+}
+.dashboard-nav a button:hover {
+  color: #94c300;
+}
