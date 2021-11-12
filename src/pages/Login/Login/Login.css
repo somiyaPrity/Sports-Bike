@@ -1,0 +1,25 @@
+/* login form */
+.form-main-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.form-div {
+  margin-top: 100px;
+  width: 400px;
+  border-radius: 10px;
+  border: 1px solid #94c300;
+  margin: 0 auto;
+  padding: 20px;
+}
+.forget-btn {
+  background-color: transparent;
+  border-color: transparent;
+  color: red;
+}
+@media only screen and (max-width: 653px) {
+  .form-div {
+    width: 200px;
+  }
+}
