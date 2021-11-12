@@ -1,11 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 import banner2 from '../../../images/banner2.jpg';
+import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
+  const { user, registerUser, authError } = useAuth();
+
+  // email and password set
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [userName, setUserName] = useState('');
+
+  //   email and password receive from input field
+  const handleEmail = (e) => {
+    const email = e.target.value;
+    setEmail(email);
+  };
+  const handleName = (e) => {
+    const userName = e.target.value;
+    if (userName === '') {
+      alert('name field cannot be empty');
+    } else {
+      setUserName(userName);
+    }
+  };
+  const handlePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+  };
+
+  // user form submit
+  const handleRegisterUser = (e) => {
+    registerUser(email, password, userName);
+    e.preventDefault();
+  };
+
+  // style
   const bgFooter = {
     background: `url(${banner2})`,
     backgroundColor: 'rgba(0, 0, 0, 0.8)',
@@ -40,6 +73,7 @@ const Register = () => {
               <Form>
                 <Form.Group className='mb-3'>
                   <Form.Control
+                    onBlur={handleEmail}
                     required
                     type='email'
                     placeholder='Enter email'
@@ -47,6 +81,7 @@ const Register = () => {
                 </Form.Group>
                 <Form.Group className='mb-3'>
                   <Form.Control
+                    onBlur={handleName}
                     type='text'
                     required
                     placeholder='Enter your name'
@@ -54,6 +89,7 @@ const Register = () => {
                 </Form.Group>
                 <Form.Group className='mb-3' controlId='formBasicPassword'>
                   <Form.Control
+                    onBlur={handlePassword}
                     type='password'
                     required
                     placeholder='Password'
@@ -61,11 +97,12 @@ const Register = () => {
                 </Form.Group>
 
                 <br />
-                <p className='text-danger'></p>
+                <p className='text-danger'>{authError}</p>
                 <Button
                   style={{ backgroundColor: '#94c300', fontWeight: 'bold' }}
                   variant='success'
                   type='submit'
+                  onClick={handleRegisterUser}
                 >
                   Register
                 </Button>

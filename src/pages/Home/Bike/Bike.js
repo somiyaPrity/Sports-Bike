@@ -13,7 +13,6 @@ const Bike = (props) => {
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>{model}</Card.Text>
-
           <Rating
             readonly
             initialRating={rating}
