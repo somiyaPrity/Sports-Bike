@@ -13,10 +13,33 @@
 }
 
 /* footer */
-.svg-inline--fa {
+/* .svg-inline--fa {
   margin: 0 3px;
-}
-
-.follow-us {
+} */
+.follow-us h6 {
   color: #fff;
+  margin-bottom: 18px;
+}
+.follow-us {
+  margin-bottom: 10px;
+  /* border-bottom: 1px solid gray; */
+  padding-bottom: 15px;
+}
+.follow-us a {
+  text-transform: none;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  color: #000;
+  margin-right: 6px;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 50%;
+}
+.footer-content {
+  text-align: left;
+}
+.footer-content p {
+  font-size: 12px;
+  margin-bottom: 0;
 }

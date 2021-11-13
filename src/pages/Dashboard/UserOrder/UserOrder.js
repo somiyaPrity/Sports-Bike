@@ -11,7 +11,7 @@ const UserOrder = () => {
   const { user } = useAuth();
   const statusRed = 'pending...';
   useEffect(() => {
-    fetch(`http://localhost:5000/order/${user.email}`)
+    fetch(`https://boiling-beach-16570.herokuapp.com/order/${user.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [user.email]);
@@ -19,13 +19,15 @@ const UserOrder = () => {
   const deleteOrder = (id) => {
     const proceed = window.confirm('Are you sure, you want to delete?');
     if (proceed) {
-      axios.delete(`http://localhost:5000/order/${id}`).then((res) => {
-        if (res.data.deletedCount > 0) {
-          alert('Order deleted');
-          const remainingOrder = orders.filter((order) => order._id !== id);
-          setOrders(remainingOrder);
-        }
-      });
+      axios
+        .delete(`https://boiling-beach-16570.herokuapp.com/order/${id}`)
+        .then((res) => {
+          if (res.data.deletedCount > 0) {
+            alert('Order deleted');
+            const remainingOrder = orders.filter((order) => order._id !== id);
+            setOrders(remainingOrder);
+          }
+        });
     }
   };
   return (

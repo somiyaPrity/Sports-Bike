@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import footerImg from '../../../images/bg_footer.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { Link } from 'react-router-dom';
 import {
   faTwitter,
   faFacebookF,
@@ -22,20 +22,42 @@ const Footer = () => {
     <div style={bgFooter}>
       <div className='footerMain'>
         <Container>
+          <div className='follow-us'>
+            <h6>Follow Us On:</h6>
+
+            <Link>
+              <FontAwesomeIcon icon={faTwitter} />
+            </Link>
+            <Link>
+              <FontAwesomeIcon icon={faFacebookF} />
+            </Link>
+            <Link>
+              <FontAwesomeIcon icon={faInstagram} />
+            </Link>
+          </div>
           <div className='footer'>
-            <div className='footer-address'>
+            <div className='footer-content'>
+              <h6>Company</h6>
+              <p>About us</p>
+              <p>Privacy Policy</p>
+              <p>Contact Us</p>
+            </div>
+            <div className='footer-content'>
+              <h6>Products</h6>
+              <p>Winter Bikes</p>
+              <p>Mountain Bikes</p>
+              <p>Carbon Wheels</p>
+            </div>
+            <div className='footer-content'>
+              <h6>Shop</h6>
+              <p>Buy Direct</p>
+              <p>Our Commitment</p>
+              <p>Warranty</p>
+            </div>
+            <div className='footer-content'>
               <h6>Address</h6>
               <p>House-0,Road-2,Block-L</p>
               <p>Banani,Dhaka-1213</p>
-            </div>
-            <div className='follow-us'>
-              <h6>Follow Us On:</h6>
-              {/* footer icon */}
-              <div className='footer-icon'>
-                <FontAwesomeIcon icon={faTwitter} />
-                <FontAwesomeIcon icon={faFacebookF} />
-                <FontAwesomeIcon icon={faInstagram} />
-              </div>
             </div>
           </div>
         </Container>
