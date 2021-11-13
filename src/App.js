@@ -8,6 +8,7 @@ import Login from './pages/Login/Login/Login';
 import Register from './pages/Login/Register/Register';
 import AuthProvider from './context/AuthProvider/AuthProvider';
 import UserDashboard from './pages/Dashboard/UserDashboard/UserDashboard';
+import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -30,12 +31,12 @@ function App() {
             <Route path='/register'>
               <Register />
             </Route>
-            <Route path='/userDashboard'>
+            <PrivateRoute path='/userDashboard'>
               <UserDashboard />
-            </Route>
-            <Route path='/placeOrder/:bikeId'>
+            </PrivateRoute>
+            <PrivateRoute path='/placeOrder/:bikeId'>
               <PlaceOrder></PlaceOrder>
-            </Route>
+            </PrivateRoute>
             <Route path='*'>
               <NotFound />
             </Route>

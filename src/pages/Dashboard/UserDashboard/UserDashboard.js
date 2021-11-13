@@ -5,26 +5,10 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
-import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import './UserDashboard.css';
-//import Home from '../../Home/Home/Home';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useRouteMatch,
-} from 'react-router-dom';
+import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Pay from '../Pay/Pay';
 import DashBoardHome from '../DashboardHome/DashBoardHome';
@@ -33,13 +17,17 @@ import UserOrder from '../UserOrder/UserOrder';
 import useAuth from '../../../hooks/useAuth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import ManageAllOrder from '../ManageAllOrder/ManageAllOrder';
+import ManageProducts from '../ManageProducts/ManageProducts';
+import AddProduct from '../AddProduct/AddProduct';
 
 const drawerWidth = 200;
 
 function UserDashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const { user } = useAuth();
+  const { admin, user, logout } = useAuth();
   let { path, url } = useRouteMatch();
 
   const handleDrawerToggle = () => {
@@ -51,10 +39,11 @@ function UserDashboard(props) {
       {/* <Toolbar /> */}
       <div style={{ color: '#2C394B' }}>
         <FontAwesomeIcon icon={faUserCircle}></FontAwesomeIcon>
-        <p>{user.displayName}</p>
+        <p>{user?.displayName}</p>
       </div>
       <Divider />
-      {user?.email !== 'admin@admin.com' ? (
+
+      {!admin ? (
         <div className='dashboard-nav'>
           <Link to='/home'>
             <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>
@@ -68,6 +57,17 @@ function UserDashboard(props) {
           <Link to={`${url}/payment`}>
             <Button variant='text'>Payment</Button>
           </Link>
+          <Button
+            onClick={logout}
+            style={{
+              backgroundColor: '#94c300',
+              fontWeight: 'bold',
+              marginLeft: '8px',
+            }}
+            variant='success'
+          >
+            Logout
+          </Button>
         </div>
       ) : (
         <div className='dashboard-nav'>
@@ -87,9 +87,17 @@ function UserDashboard(props) {
           <Link to={`${url}/manageProducts`}>
             <Button variant='text'>Manage Products</Button>
           </Link>
-          <Link>
-            <Button variant='text'>Logout</Button>
-          </Link>
+          <Button
+            onClick={logout}
+            style={{
+              backgroundColor: '#94c300',
+              fontWeight: 'bold',
+              marginLeft: '8px',
+            }}
+            variant='success'
+          >
+            Logout
+          </Button>
         </div>
       )}
     </div>
@@ -178,6 +186,18 @@ function UserDashboard(props) {
           </Route>
           <Route path={`${path}/review`}>
             <AddReview></AddReview>
+          </Route>
+          <Route path={`${path}/makeAdmin`}>
+            <MakeAdmin></MakeAdmin>
+          </Route>
+          <Route path={`${path}/manageAllOrders`}>
+            <ManageAllOrder></ManageAllOrder>
+          </Route>
+          <Route path={`${path}/manageProducts`}>
+            <ManageProducts></ManageProducts>
+          </Route>
+          <Route path={`${path}/addProduct`}>
+            <AddProduct></AddProduct>
           </Route>
         </Switch>
       </Box>

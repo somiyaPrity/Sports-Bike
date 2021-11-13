@@ -6,7 +6,7 @@ import Bike from '../Bike/Bike';
 const Bikes = () => {
   const [bikes, setBikes] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/bikes')
+    fetch('https://boiling-beach-16570.herokuapp.com/bikes')
       .then((res) => res.json())
       .then((data) => setBikes(data));
   }, []);
@@ -17,9 +17,9 @@ const Bikes = () => {
       <Header></Header>
       {/* section header */}
       <div style={{ margin: '50px 50px' }} className='section-header'>
-        <h1>
+        <h3>
           <span style={{ color: '#94c300' }}>SPORTS BIKE</span> COLLECTIONS
-        </h1>
+        </h3>
         <div
           style={{
             backgroundColor: '#94c300',

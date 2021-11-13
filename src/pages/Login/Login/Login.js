@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 import { Container, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import banner2 from '../../../images/banner2.jpg';
 import './Login.css';
 import useAuth from '../../../hooks/useAuth';
+import { NavLink, useLocation, useHistory } from 'react-router-dom';
+import { CircularProgress } from '@mui/material';
+
 const Login = () => {
-  const { user, signIn } = useAuth();
+  const { user, signIn, isLoading, authError } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const location = useLocation();
+  const history = useHistory();
+
   //   email and password receive from input field
   const handleEmail = (e) => {
     const email = e.target.value;
@@ -22,7 +27,7 @@ const Login = () => {
 
   // login function
   const handleLogIn = (e) => {
-    signIn(email, password);
+    signIn(email, password, location, history);
     e.preventDefault();
   };
   // style
@@ -90,6 +95,7 @@ const Login = () => {
             </div>
           </div>
         </div>
+        {isLoading && <CircularProgress />}
       </Container>
     </div>
   );

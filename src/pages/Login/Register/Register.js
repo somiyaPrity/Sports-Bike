@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 import banner2 from '../../../images/banner2.jpg';
 import useAuth from '../../../hooks/useAuth';
+import { useHistory } from 'react-router-dom';
+import { CircularProgress } from '@mui/material';
 
 const Register = () => {
-  const { user, registerUser, authError } = useAuth();
-
+  const { user, isLoading, registerUser, authError } = useAuth();
+  const history = useHistory();
   // email and password set
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -34,7 +34,7 @@ const Register = () => {
 
   // user form submit
   const handleRegisterUser = (e) => {
-    registerUser(email, password, userName);
+    registerUser(email, password, userName, history);
     e.preventDefault();
   };
 
@@ -117,6 +117,7 @@ const Register = () => {
             </div>
           </div>
         </div>
+        {isLoading && <CircularProgress />}
       </Container>
     </div>
   );

@@ -1,0 +1,24 @@
+.add-package form {
+  width: 400px;
+  border: 2px solid #94c300;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  margin: 0 auto;
+  color: red;
+}
+.add-package form input {
+  margin-top: 6px;
+}
+.package-btn {
+  background-color: #94c300;
+  border-color: #94c300;
+  color: #fff;
+}
+@media only screen and (max-width: 653px) {
+  .add-package form {
+    width: 200px;
+  }
+}

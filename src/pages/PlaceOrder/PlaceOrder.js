@@ -20,7 +20,7 @@ const PlaceOrder = () => {
   console.log(bikeId);
   //get bikes
   useEffect(() => {
-    fetch('http://localhost:5000/bikes')
+    fetch('https://boiling-beach-16570.herokuapp.com/bikes')
       .then((res) => res.json())
       .then((data) => setBikes(data));
   }, []);
@@ -44,12 +44,14 @@ const PlaceOrder = () => {
       data.status = 'pending...';
     });
     console.log(data);
-    axios.post('http://localhost:5000/order', data).then(function (res) {
-      if (res.data.insertedId) {
-        alert('order placed');
-        reset();
-      }
-    });
+    axios
+      .post('https://boiling-beach-16570.herokuapp.com/order', data)
+      .then(function (res) {
+        if (res.data.insertedId) {
+          alert('order placed');
+          reset();
+        }
+      });
   };
   console.log(currentItem);
   return (
@@ -101,7 +103,7 @@ const PlaceOrder = () => {
                 {...register('phoneNumber', { required: true })}
                 placeholder='Enter your Phone number'
               />
-              {errors.address?.type === 'required' &&
+              {errors.phoneNumber?.type === 'required' &&
                 '*Phone number is required'}
               <br />
               <input

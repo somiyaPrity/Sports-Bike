@@ -1,0 +1,16 @@
+form input {
+  margin-top: 6px;
+  display: block;
+  width: 205px;
+  margin: 0 auto;
+}
+form {
+  margin: 0 auto;
+  text-align: center;
+  border-color: 1px solid #94c300;
+}
+form textarea {
+  margin-top: 6px;
+  width: 205px;
+  height: 150px;
+}
