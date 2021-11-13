@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import Header from '../Shared/Header/Header';
 import useAuth from '../../hooks/useAuth';
 import './PlaceOrder.css';
@@ -74,52 +74,59 @@ const PlaceOrder = () => {
               ></div>
             </div>
           </div>
-          {currentItem.map((item) => (
-            <div>
-              <img
-                style={{ width: '500px', marginTop: '0px' }}
-                src={item.img}
-                alt=''
-              />
-              <h3>{item.name}</h3>
-              <p>{item.model}</p>
-              <p>Price: BDT{item.price}</p>
-            </div>
-          ))}
-          <div className='place-order'>
-            <br />
-            <p>Name: {user.displayName}</p>
-            <p>Email: {user.email}</p>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <input
-                type='text'
-                {...register('address', { required: true })}
-                placeholder='Enter your address'
-              />
-              {errors.address?.type === 'required' && '*place name is required'}
-              <br />
-              <input
-                type='number'
-                {...register('phoneNumber', { required: true })}
-                placeholder='Enter your Phone number'
-              />
-              {errors.phoneNumber?.type === 'required' &&
-                '*Phone number is required'}
-              <br />
-              <input
-                className='package-btn'
-                style={{
-                  backgroundColor: '#94c300',
-                  color: '#fff',
-                  marginTop: '4px',
-                  fontWeight: 'bold',
-                }}
-                type='submit'
-              />
-            </form>
+          <Row xs={1} md={2} lg={2}>
+            <Col>
+              {currentItem.map((item) => (
+                <div>
+                  <h3>{item.name}</h3>
+                  <p>{item.model}</p>
+                  <p>Price: BDT{item.price}</p>
+                  <img
+                    style={{ width: '100%', marginTop: '0px' }}
+                    src={item.img}
+                    alt=''
+                  />
+                </div>
+              ))}
+            </Col>
+            <Col>
+              <div className='place-order'>
+                <br />
+                <p>Name: {user.displayName}</p>
+                <p>Email: {user.email}</p>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <input
+                    type='text'
+                    {...register('address', { required: true })}
+                    placeholder='Enter your address'
+                  />
+                  {errors.address?.type === 'required' &&
+                    '*place name is required'}
+                  <br />
+                  <input
+                    type='number'
+                    {...register('phoneNumber', { required: true })}
+                    placeholder='Enter your Phone number'
+                  />
+                  {errors.phoneNumber?.type === 'required' &&
+                    '*Phone number is required'}
+                  <br />
+                  <input
+                    className='package-btn'
+                    style={{
+                      backgroundColor: '#94c300',
+                      color: '#fff',
+                      marginTop: '4px',
+                      fontWeight: 'bold',
+                    }}
+                    type='submit'
+                  />
+                </form>
 
-            <br />
-          </div>
+                <br />
+              </div>
+            </Col>
+          </Row>
         </Container>
       </div>
     </div>

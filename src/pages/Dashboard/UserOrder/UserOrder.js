@@ -37,7 +37,7 @@ const UserOrder = () => {
         <p className='all-header mb-2'>Total order: {orders.length}</p>
 
         <div>
-          <Table responsive='sm md lg' striped bordered hover>
+          <Table responsive='xs sm md lg' striped bordered hover>
             <thead>
               <tr>
                 <th>List</th>

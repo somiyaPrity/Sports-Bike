@@ -1,8 +1,7 @@
 .place-order {
-    width: 400px;
-    /* padding: 20px; */
-    border: 2px solid green;
-    margin: 0 auto;
-    margin-bottom: 50px;
-  }
-  
+  width: 100%;
+  /* padding: 20px; */
+  border: 2px solid #94c300;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}

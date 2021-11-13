@@ -21,6 +21,8 @@ import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import ManageAllOrder from '../ManageAllOrder/ManageAllOrder';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import AddProduct from '../AddProduct/AddProduct';
+import { IconButton } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const drawerWidth = 200;
 
@@ -36,7 +38,7 @@ function UserDashboard(props) {
 
   const drawer = (
     <div>
-      {/* <Toolbar /> */}
+      <Toolbar />
       <div style={{ color: '#2C394B' }}>
         <FontAwesomeIcon icon={faUserCircle}></FontAwesomeIcon>
         <p>{user?.displayName}</p>
@@ -121,6 +123,15 @@ function UserDashboard(props) {
         }}
       >
         <Toolbar>
+          <IconButton
+            color='inherit'
+            aria-label='open drawer'
+            edge='start'
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
+          >
+            <MenuIcon />
+          </IconButton>
           <Typography variant='h6' noWrap component='div'>
             Sports Bike
           </Typography>

@@ -7,7 +7,7 @@ const Review = (props) => {
   return (
     <div>
       <Col>
-        <Card style={{ width: '18rem' }}>
+        <Card>
           <Card.Img variant='top' src={img} />
           <Card.Body>
             <Card.Title>{name}</Card.Title>

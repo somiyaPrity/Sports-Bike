@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import footerImg from '../../../images/bg_footer.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
@@ -35,31 +35,39 @@ const Footer = () => {
               <FontAwesomeIcon icon={faInstagram} />
             </Link>
           </div>
-          <div className='footer'>
-            <div className='footer-content'>
-              <h6>Company</h6>
-              <p>About us</p>
-              <p>Privacy Policy</p>
-              <p>Contact Us</p>
-            </div>
-            <div className='footer-content'>
-              <h6>Products</h6>
-              <p>Winter Bikes</p>
-              <p>Mountain Bikes</p>
-              <p>Carbon Wheels</p>
-            </div>
-            <div className='footer-content'>
-              <h6>Shop</h6>
-              <p>Buy Direct</p>
-              <p>Our Commitment</p>
-              <p>Warranty</p>
-            </div>
-            <div className='footer-content'>
-              <h6>Address</h6>
-              <p>House-0,Road-2,Block-L</p>
-              <p>Banani,Dhaka-1213</p>
-            </div>
-          </div>
+          <Row xs={2} md={4} lg={4} className='g-2'>
+            <Col>
+              <div className='footer-content'>
+                <h6>Company</h6>
+                <p>About us</p>
+                <p>Privacy Policy</p>
+                <p>Contact Us</p>
+              </div>
+            </Col>
+            <Col>
+              <div className='footer-content'>
+                <h6>Products</h6>
+                <p>Winter Bikes</p>
+                <p>Mountain Bikes</p>
+                <p>Carbon Wheels</p>
+              </div>
+            </Col>
+            <Col>
+              <div className='footer-content'>
+                <h6>Shop</h6>
+                <p>Buy Direct</p>
+                <p>Our Commitment</p>
+                <p>Warranty</p>
+              </div>
+            </Col>
+            <Col>
+              <div className='footer-content'>
+                <h6>Address</h6>
+                <p>House-0,Road-2,Block-L</p>
+                <p>Banani,Dhaka-1213</p>
+              </div>
+            </Col>
+          </Row>
         </Container>
       </div>
     </div>
