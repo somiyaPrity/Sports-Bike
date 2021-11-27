@@ -10,22 +10,25 @@ const Bike = (props) => {
     <Col>
       <Card>
         <Card.Img variant='top' className='img-fluid' src={img} />
-        <Card.Body>
-          <Card.Title>{name}</Card.Title>
-          <Card.Text>{model}</Card.Text>
-          <Rating
+        <Card.Body style={{textAlign:'left',padding:'0'}}>
+          <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
+          <Card.Text style={{fontSize:'14px'}}> BDT {price}</Card.Text>
+            <Rating
             readonly
             initialRating={rating}
             emptySymbol='far fa-star rating-color'
             fullSymbol='fas fa-star rating-color '
           />
-          <Card.Text>Price: BDT {price}</Card.Text>
-
-          <br />
+          
+        </div>
+          <Card.Title>{name}</Card.Title>
+          <Card.Text style={{fontSize:'12px'}}>{model}</Card.Text>
+          
+      
 
           <Link to={`/placeOrder/${_id}`}>
             <Button
-              style={{ backgroundColor: '#94c300', fontWeight: 'bold' }}
+              style={{ backgroundColor: '#94c300', fontWeight: 'bold',borderColor:'transparent', marginTop:"4px"}}
               variant='success'
             >
               Buy Now

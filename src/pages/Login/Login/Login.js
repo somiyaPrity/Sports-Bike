@@ -81,7 +81,7 @@ const Login = () => {
                 <Button
                   onClick={handleLogIn}
                   type='submit'
-                  style={{ backgroundColor: '#94c300', fontWeight: 'bold' }}
+                  style={{ backgroundColor: '#94c300', fontWeight: 'bold',borderColor:'transparent' }}
                   variant='success'
                 >
                   Login

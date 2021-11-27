@@ -6,7 +6,7 @@ const AboutUs = () => {
   return (
     <div style={{ margin: '100px 0' }}>
       <Container>
-        <Row xs={1} md={2} lg={2}>
+        <Row xs={1} md={2} lg={2} style={{alignItems: 'center'}}>
           <Col>
             <img style={{ width: '100%' }} src={about} alt='' />
           </Col>
@@ -31,7 +31,7 @@ const AboutUs = () => {
               reprehenderit.
             </p>
             <Button
-              style={{ backgroundColor: '#94c300', fontWeight: 'bold' }}
+              style={{ backgroundColor: '#94c300', fontWeight: 'bold',borderColor:'transparent' }}
               variant='success'
             >
               More About Us

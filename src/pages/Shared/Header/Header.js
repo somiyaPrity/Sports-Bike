@@ -46,6 +46,7 @@ const Header = () => {
                     backgroundColor: '#94c300',
                     fontWeight: 'bold',
                     marginLeft: '8px',
+                    borderColor:'transparent'
                   }}
                   variant='success'
                 >
@@ -56,7 +57,7 @@ const Header = () => {
           ) : (
             <Nav.Link as={Link} to='/login'>
               <Button
-                style={{ backgroundColor: '#94c300', fontWeight: 'bold' }}
+                style={{ backgroundColor: '#94c300', fontWeight: 'bold' ,borderColor:'transparent'}}
                 variant='success'
               >
                 Login

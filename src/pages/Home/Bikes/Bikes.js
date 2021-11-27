@@ -31,7 +31,7 @@ const Bikes = () => {
       </div>
       {/* bike section body */}
       <Container>
-        <Row xs={1} md={3} lg={4} className='g-4'>
+        <Row xs={1} md={3} lg={3} className='g-4'>
           {bikes.map((bike) => (
             <Bike key={bike._id} bike={bike}></Bike>
           ))}

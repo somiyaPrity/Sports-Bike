@@ -34,7 +34,7 @@ const SixBike = () => {
       {/* all product */}
       <div className='mb-5'>
         <Container>
-          <Row xs={1} md={3} lg={4} className='g-4'>
+          <Row xs={1} md={3} lg={3} className='g-4'>
             {sixBikes.map((bike) => (
               <Bike key={bike._id} bike={bike}></Bike>
             ))}
@@ -44,7 +44,7 @@ const SixBike = () => {
 
       <Link to='/bikes'>
         <Button
-          style={{ backgroundColor: '#94c300', fontWeight: 'bold' }}
+          style={{ backgroundColor: '#94c300', fontWeight: 'bold' ,borderColor:'transparent'}}
           variant='success'
         >
           <span style={{ marginRight: '6px' }}>Show More</span>
